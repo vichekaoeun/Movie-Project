@@ -5,17 +5,17 @@ Before working there are specific tools and extensions to install: <br>
 - NodeJS
 - Git
 ## Cloning
-1. Run this to clone the repository:
+1. Run this to clone the repository:<br>
 ```git clone git@github.com:vichekaoeun/Movie-Project.git```
-2. Always run *git pull* before working
+2. Always run *git pull* before working<br>
 ```git pull```
 ## Installation
-1. After cloning or pulling, run this to install all dependencies:
+1. After cloning or pulling, run this to install all dependencies:<br>
 ```npm install```
 # Run website
-1. Run this to see development:
+1. Run this to see development:<br>
 ```npm start```
-2. Website runs on:
+2. Website runs on:<br>
 ```localhost:9000```
-3. To run build:
+3. To run build:<br>
 ```npm run build```
