@@ -14,7 +14,7 @@ Before working there are specific tools and extensions to install: <br>
 ```npm install```
 # Run website
 1. Run this to see development:<br>
-```npm start```
+```npm run dev```
 2. Website runs on:<br>
 ```localhost:9000```
 3. To run build:<br>
