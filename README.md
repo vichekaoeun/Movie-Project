@@ -4,6 +4,7 @@ Movie Mood Mixer aims to bring convenience to all movie lovers across the intern
 Before working there are specific tools and extensions to install: <br>
 - NodeJS
 - Git
+- TailwindCSS
 ## Cloning
 1. Run this to clone the repository:<br>
 ```git clone git@github.com:vichekaoeun/Movie-Project.git```
