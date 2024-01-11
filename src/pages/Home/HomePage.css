@@ -1,8 +1,16 @@
-
-#trending h1{
-    display: block;
-    grid-column-start: 2;
-
-    font-family: 'Times New Roman', Times, serif;
+.homecontent{
+    font-family: monospace;
+    font-size: 45px;
+    font-weight: bold;    
+    text-shadow: 3px 2px 0px whitesmoke;
+    text-shadow: 2px 2px 0px #000000;
+    color: rgba(255, 255, 255, 0.925);
+    text-underline-offset: auto;
+}
+#join-group:hover {
+    -webkit-text-stroke-color: #000000;
+    text-shadow: 3px 2px 5px rgba(58, 56, 56, 0.575);
+    color: rgba(255, 255, 255, 0.925); 
+    
    
 }

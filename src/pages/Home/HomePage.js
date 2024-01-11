@@ -5,12 +5,12 @@ import "./HomePage.css";
 const HomePage = () => {
     return (
         <div>
-            <div className="grid grid-cols-6 h-screen">
-                <div className="bg-pink-400 col-span-1">
+            <div className="grid grid-cols-6 h-screen bg-gradient-to-tr from-yellow-600 to-purple-600">
+                <div className="bg-purple-500 bg-opacity-30 col-span-1">
                     <Sidebar />
                 </div>
-                <div className="col-span-5 bg-blue-400">
-                    <div id="trending">
+                <div className="col-span-5  px-8 homecontent">
+                    <div id="trending" >
                         <h1>TRENDING</h1>
                     </div>
                     <div id="mood-mixer">
