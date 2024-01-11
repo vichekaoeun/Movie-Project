@@ -9,7 +9,7 @@ const AboutPage = () => {
             </div>
             <div className=" col-span-5 bg-yellow-400 h-screen flex flex-col items-center gap-8">
                 <h1 className="col-span-3 col-start-2 text-6xl my-3">
-                    About Us!
+                    <u>About Us!</u>
                 </h1>
                 <div className="">
                     <p className="text-lg">
