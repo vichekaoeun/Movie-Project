@@ -4,7 +4,8 @@ module.exports = {
     entry: ['./src/index.js', './src/input.css'],
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+        publicPath: '/',
     },
     module: {
         rules: [
@@ -29,7 +30,8 @@ module.exports = {
             directory: path.join(__dirname, 'dist'),
         },
         compress: true,
-        port: 9000
+        port: 9000,
+        historyApiFallback: true,
     },
     mode: 'development',
 };
