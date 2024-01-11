@@ -1,0 +1,38 @@
+:root {
+    --dark-color: #C8DB7D;
+    --light-color: #AFD80C;
+}
+
+.mixer-container {
+    position: relative;
+    width: 352px;
+    height: 331px;
+    overflow: hidden;
+}
+
+#darkGroup {
+    fill: var(--dark-color);
+    transform-origin: center;
+    transition: transform 1s ease;
+    /* Apply transition to default state */
+}
+
+#lightGroup {
+    fill: var(--light-color);
+    transform-origin: center;
+    transform: scale(1);
+    opacity: 1;
+    /* Initial opacity for default state */
+    transition: transform 1s ease, opacity 0.5s ease;
+    /* Apply transition to default state */
+}
+
+svg:hover #dark1 {
+    transform: scale(1.1);
+    transition: transform 1s ease, opacity 0.5s ease;
+}
+
+svg:hover #light1 {
+    opacity: 0;
+    transform: scale(1.1);
+}
