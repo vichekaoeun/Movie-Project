@@ -5,8 +5,6 @@
 
 .mixer-container {
     position: relative;
-    width: 352px;
-    height: 331px;
     overflow: hidden;
 }
 
