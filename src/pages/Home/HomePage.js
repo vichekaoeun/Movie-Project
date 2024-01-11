@@ -1,13 +1,13 @@
 import React from "react";
 import Sidebar from '../../components/Sidebar/Sidebar.js';
 
-const Home = () => {
+const HomePage = () => {
     return (
-        <div className="bg-blue-500">
-            <div className="Sidebar">
+        <div className="grid grid-cols-4 gap-4">
+            <div className="bg-pink-400 col-span-1">
                 <Sidebar />
             </div>
-            <div className="Home-Main">
+            <div className="col-span-3 bg-blue-400">
                 <div id="trending">
                     <h1>TRENDING</h1>
                 </div>
@@ -21,4 +21,4 @@ const Home = () => {
         </div>
     )
 }
-export default Home;
+export default HomePage;
