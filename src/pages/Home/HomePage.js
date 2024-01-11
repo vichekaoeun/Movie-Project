@@ -1,5 +1,6 @@
 import React from "react";
 import Sidebar from '../../components/Sidebar/Sidebar.js';
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
     return (
@@ -17,7 +18,7 @@ const HomePage = () => {
                     <h1>MOOD MIXER</h1>
                 </div>
                 <div id="join-group">
-                    <h1>JOIN GROUP</h1>
+                    <Link to='/group'>JOIN GROUP</Link>
                 </div>
             </div>
         </div>
