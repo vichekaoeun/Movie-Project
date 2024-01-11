@@ -3,7 +3,7 @@ import Sidebar from '../../components/Sidebar/Sidebar.js';
 
 const Home = () => {
     return (
-        <div className="bg-blue-500">
+        <div className="bg-orange-500">
             <div className="Sidebar">
                 <Sidebar />
             </div>
