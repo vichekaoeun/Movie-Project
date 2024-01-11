@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 const HomePage = () => {
     return (
         <div>
-            <div className="grid grid-cols-4 h-screen">
+            <div className="grid grid-cols-6 h-screen">
                 <div className="bg-pink-400 col-span-1">
                     <Sidebar />
                 </div>
-                <div className="col-span-3 bg-blue-400">
+                <div className="col-span-5 bg-blue-400">
                     <div id="trending">
                         <h1>TRENDING</h1>
                     </div>
