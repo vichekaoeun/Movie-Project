@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from '../pages/Home/HomePage.js';
 import AboutPage from '../pages/About/AboutPage.js';
 import GroupPage from '../pages/Group/Group.js';
+import DiscoverPage from '../pages/Discover/Discover.js';
 
 const Router = () => {
     const router = createBrowserRouter([
@@ -17,6 +18,10 @@ const Router = () => {
         {
             path: '/group',
             element: <GroupPage />,
+        },
+        {
+            path: '/discover',
+            element: <DiscoverPage />
         }
     ]);
     return <RouterProvider router={router} />
