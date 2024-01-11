@@ -3,7 +3,11 @@ import Sidebar from '../../components/Sidebar/Sidebar.js';
 
 const GroupPage = () => {
     return (
+<<<<<<< HEAD
         <div className="grid grid-cols-4 ">
+=======
+        <div className="grid grid-cols-4">
+>>>>>>> bac47be6f033e05796d30dc99569158cc5099107
             <div className="bg-pink-400 col-span-1">
                 <Sidebar />
             </div>
