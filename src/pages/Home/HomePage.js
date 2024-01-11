@@ -5,8 +5,7 @@ import { Link } from 'react-router-dom';
 const HomePage = () => {
     return (
         <div>
-            <div className="Sidebar"></div>
-            <div className="grid grid-cols-4 gap-4 h-screen">
+            <div className="grid grid-cols-4 h-screen">
                 <div className="bg-pink-400 col-span-1">
                     <Sidebar />
                 </div>
