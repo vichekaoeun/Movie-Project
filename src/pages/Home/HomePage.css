@@ -1,0 +1,8 @@
+
+#trending h1{
+    display: block;
+    grid-column-start: 2;
+
+    font-family: 'Times New Roman', Times, serif;
+   
+}

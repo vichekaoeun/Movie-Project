@@ -556,12 +556,32 @@ video {
   grid-column-start: 2;
 }
 
+.col-start-1 {
+  grid-column-start: 1;
+}
+
 .col-end-2 {
   grid-column-end: 2;
 }
 
+.col-end-4 {
+  grid-column-end: 4;
+}
+
+.col-end-5 {
+  grid-column-end: 5;
+}
+
+.col-end-3 {
+  grid-column-end: 3;
+}
+
 .grid {
   display: grid;
+}
+
+.h-screen {
+  height: 100vh;
 }
 
 .grid-cols-1 {
@@ -582,10 +602,6 @@ video {
 
 .grid-rows-4 {
   grid-template-rows: repeat(4, minmax(0, 1fr));
-}
-
-.gap-4 {
-  gap: 1rem;
 }
 
 .bg-blue-400 {
