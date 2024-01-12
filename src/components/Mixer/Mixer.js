@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import './Mixer.css';
 
 // Generate a random size value
@@ -23,36 +23,79 @@ const getRandomColor = () => {
     return `#${red}${green}${blue}`;
 };
 
+// Generate moods with random indices
+const moods = ["Happy", "Sad", "Excited", "Calm", "Surprised", "Angry", "Content", "Energetic", "Relaxed", "Playful"];
 
 const Mixer = () => {
     const numButtons = 10;
-    const buttons = []; // Array to store buttons
-
-    for (let i = 0; i < numButtons; i++) {
-        const buttonStyles = {
-            width: getRandomSize(),
-            height: getRandomSize(),
-            left: getRandomPosition(),
-            top: getRandomPosition(),
-            padding: 5
+    const [buttons, setButtons] = useState([]);
+    const handleButtonClick = (mood) => {
+        switch (mood) {
+            case 0:
+                console.log('Click on Happy');
+                break;
+            case 1:
+                console.log('Click on Sad');
+                break;
+            case 2:
+                console.log('Click on Excited');
+                break;
+            case 3:
+                console.log('Click on Calm');
+                break;
+            case 4:
+                console.log('Click on Surprised');
+                break;
+            case 5:
+                console.log('Click on Angry');
+                break;
+            case 6:
+                console.log('Click on Content');
+                break;
+            case 7:
+                console.log('Click on Energetic');
+                break;
+            case 8:
+                console.log('Click on Relaxed');
+                break;
+            case 9:
+                console.log('Click on Playful');
+                break;
         }
-        console.log(buttonStyles);
+    };
 
-        buttons.push(
-            <button key={i} style={buttonStyles}>
-                <svg width="100%" height="100%" viewBox="0 0 352 331" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g id="Frame 1">
-                        <g id="darkGroup">
-                            <ellipse id="dark1" cx="176.5" cy="151.5" rx="133.5" ry="62.5" />
+    useEffect(() => {
+        const generatedButtons = [];
+
+        for (let i = 0; i < numButtons; i++) {
+            const mood = moods[i];
+            const buttonStyles = {
+                width: getRandomSize(),
+                height: getRandomSize(),
+                left: getRandomPosition(),
+                top: getRandomPosition(),
+                padding: 5
+            }
+            console.log(buttonStyles);
+
+            generatedButtons.push(
+                <button key={i} style={buttonStyles} onClick={() => handleButtonClick(i)}>
+                    <svg width="100%" height="100%" viewBox="0 0 352 331" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="Frame 1">
+                            <g id="darkGroup">
+                                <ellipse id="dark1" cx="176.5" cy="151.5" rx="133.5" ry="62.5" />
+                            </g>
+                            <g id="lightGroup">
+                                <ellipse id="light1" cx="176.5" cy="151.5" rx="133.5" ry="62.5" fill={getRandomColor()} />
+                                <text x="50%" y="50%" dominantBaseline="middle" textAnchor="middle" fill="#fff" fontSize="30">{mood}</text>
+                            </g>
                         </g>
-                        <g id="lightGroup">
-                            <ellipse id="light1" cx="176.5" cy="151.5" rx="133.5" ry="62.5" fill={getRandomColor()} />
-                        </g>
-                    </g>
-                </svg>
-            </button>
-        )
-    }
+                    </svg>
+                </button>
+            )
+        }
+        setButtons(generatedButtons);
+    }, []);
 
     return (
         <>
