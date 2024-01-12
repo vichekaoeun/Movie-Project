@@ -23,7 +23,7 @@ const getRandomColor = () => {
     return `#${red}${green}${blue}`;
 };
 
-const moods = ["Happy", "Sad", "Excited", "Calm", "Surprised", "Angry", "Content", "Energetic", "Relaxed", "Playful"];
+const moods = ["Happy", "Sad", "Excite", "Calm", "Fear", "Anger", "Content", "Romantic", "Stress", "Humorous"];
 
 const Mixer = () => {
     const numButtons = 10;
