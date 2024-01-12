@@ -10,9 +10,19 @@ const getRandomSize = () => {
 
 // Generate a random position
 const getRandomPosition = () => {
-    const maxPosition = 200;
+    const maxPosition = 100;
     return Math.floor(Math.random() * maxPosition);
 };
+
+//Generate random colors
+const getRandomColor = () => {
+    const randomComponent = () => Math.floor(Math.random() * 256);
+    const red = randomComponent().toString(16).padStart(2, '0');
+    const green = randomComponent().toString(16).padStart(2, '0');
+    const blue = randomComponent().toString(16).padStart(2, '0');
+    return `#${red}${green}${blue}`;
+};
+
 
 const Mixer = () => {
     const numButtons = 10;
@@ -36,7 +46,7 @@ const Mixer = () => {
                             <ellipse id="dark1" cx="176.5" cy="151.5" rx="133.5" ry="62.5" />
                         </g>
                         <g id="lightGroup">
-                            <ellipse id="light1" cx="176.5" cy="151.5" rx="133.5" ry="62.5" />
+                            <ellipse id="light1" cx="176.5" cy="151.5" rx="133.5" ry="62.5" fill={getRandomColor()} />
                         </g>
                     </g>
                 </svg>
