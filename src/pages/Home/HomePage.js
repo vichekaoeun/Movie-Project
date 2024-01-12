@@ -18,7 +18,7 @@ const HomePage = () => {
                         <div>
                             <h1>MOOD MIXER</h1>
                         </div>
-                        <div>
+                        <div className="w-100 h-100">
                             < Mixer />
                         </div>
                     </div>

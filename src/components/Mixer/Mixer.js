@@ -3,19 +3,19 @@ import './Mixer.css';
 
 // Generate a random size value
 const getRandomSize = () => {
-    const minSize = 50;
-    const maxSize = 200;
+    const minSize = 100;
+    const maxSize = 250;
     return Math.floor(Math.random() * (maxSize - minSize + 1)) + minSize;
 };
 
 // Generate a random position
 const getRandomPosition = () => {
-    const maxPosition = 300;
+    const maxPosition = 200;
     return Math.floor(Math.random() * maxPosition);
 };
 
 const Mixer = () => {
-    const numButtons = 5;
+    const numButtons = 10;
     const buttons = []; // Array to store buttons
 
     for (let i = 0; i < numButtons; i++) {
@@ -24,6 +24,7 @@ const Mixer = () => {
             height: getRandomSize(),
             left: getRandomPosition(),
             top: getRandomPosition(),
+            padding: 5
         }
         console.log(buttonStyles);
 

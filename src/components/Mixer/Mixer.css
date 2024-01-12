@@ -6,6 +6,8 @@
 .mixer-container {
     position: relative;
     overflow: hidden;
+    width: 1000px;
+    height: 700px;
 }
 
 #darkGroup {
