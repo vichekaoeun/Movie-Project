@@ -18,11 +18,11 @@ const HomePage = () => {
                         <div>
                             <h1>MOOD MIXER</h1>
                         </div>
-                        <div className="w-100 h-100">
+                        <div className="w-100 h-100 flex items-center flex-col">
                             < Mixer />
                         </div>
                     </div>
-                    <div id="join-group">
+                    <div id="join-group" className="mt-10">
                         <Link to='/discover'>JOIN GROUP</Link>
                     </div>
                 </div>

@@ -23,7 +23,6 @@ const getRandomColor = () => {
     return `#${red}${green}${blue}`;
 };
 
-// Generate moods with random indices
 const moods = ["Happy", "Sad", "Excited", "Calm", "Surprised", "Angry", "Content", "Energetic", "Relaxed", "Playful"];
 
 const Mixer = () => {
@@ -94,13 +93,16 @@ const Mixer = () => {
                 </button>
             )
         }
-        setButtons(generatedButtons);
+        setButtons(generatedButtons); //Change button state
     }, []);
 
     return (
         <>
             <div className="mixer-container">
                 {buttons}
+            </div>
+            <div className="w-20 h-17 flex justify-center">
+                <button className="bg-slate-100 text-black rounded-md px-2 py-2 text-base flex justify-center">Mix</button>
             </div>
         </>
     )
