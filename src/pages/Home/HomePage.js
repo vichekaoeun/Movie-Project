@@ -1,5 +1,6 @@
 import React from "react";
 import Sidebar from '../../components/Sidebar/Sidebar.js';
+import Mixer from '../../components/Mixer/Mixer.js';
 import { Link } from 'react-router-dom';
 import "./HomePage.css";
 const HomePage = () => {
@@ -14,9 +15,14 @@ const HomePage = () => {
                         <h1>TRENDING</h1>
                     </div>
                     <div id="mood-mixer">
-                        <h1>MOOD MIXER</h1>
+                        <div>
+                            <h1>MOOD MIXER</h1>
+                        </div>
+                        <div className="w-100 h-100 flex items-center flex-col">
+                            < Mixer />
+                        </div>
                     </div>
-                    <div id="join-group">
+                    <div id="join-group" className="mt-10">
                         <Link to='/discover'>JOIN GROUP</Link>
                     </div>
                 </div>

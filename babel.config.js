@@ -6,6 +6,6 @@ module.exports = {
                 targets: { node: 'current' },
             },
         ],
-        '@babel/preset-react', // Add this line
+        '@babel/preset-react',
     ],
 };
