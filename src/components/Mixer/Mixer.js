@@ -144,6 +144,41 @@ const Mixer = () => {
     const recommendedGenres = getRecommendedGenres(selectedMoods);
     console.log('Recommended Genres:', recommendedGenres);
 
+    const [Data, SetData] = useState([]);
+
+    //Fetch API
+    const mixClick = async () => {
+        // Ensure that there are recommended genres before making the API call
+        if (recommendedGenres.length > 0) {
+            const apiKey = 'f345ddaf9fmsh7e7a747659f343cp1e804ejsn9d133f6f612c';
+            const baseUrl = 'https://moviesdatabase.p.rapidapi.com';
+
+            // Construct the URL with query parameters for recommended genres
+            const url = `${baseUrl}/titles`;
+
+            const options = {
+                method: 'GET',
+                headers: {
+                    'X-RapidAPI-Key': apiKey,
+                    'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com'
+                },
+                // Include query parameters for filtering by titleType (genres)
+                params: {
+                    titleType: recommendedGenres.join(','),
+                    info: 'titleText',  // You can adjust the info parameter based on your needs
+                },
+            };
+
+            try {
+                const response = await fetch(url, options);
+                const result = await response.text();
+                SetData(result); // Update the state with the fetched data
+                console.log('Fetched Data:', result);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+    };
 
     return (
         <>
@@ -151,7 +186,7 @@ const Mixer = () => {
                 {buttons}
             </div>
             <div className="w-20 h-17 flex justify-center">
-                <button className="bg-slate-100 text-black rounded-md px-2 py-2 text-base flex justify-center hover:bg-slate-600 active:bg-slate-700 focus:outline-none focus:ring focus:ring-slate-300">Mix</button>
+                <button onClick={() => mixClick()} className="bg-slate-100 text-black rounded-md px-2 py-2 text-base flex justify-center hover:bg-slate-600 active:bg-slate-700 focus:outline-none focus:ring focus:ring-slate-300">Mix</button>
             </div>
         </>
     );
