@@ -144,41 +144,39 @@ const Mixer = () => {
     const recommendedGenres = getRecommendedGenres(selectedMoods);
     console.log('Recommended Genres:', recommendedGenres);
 
-    const [Data, SetData] = useState([]);
+    const [MovieList, SetMovieList] = useState([]);
+    const [GenreData, SetGenreData] = useState([]);
 
-    //Fetch API
-    const mixClick = async () => {
-        // Ensure that there are recommended genres before making the API call
-        if (recommendedGenres.length > 0) {
-            const apiKey = 'f345ddaf9fmsh7e7a747659f343cp1e804ejsn9d133f6f612c';
-            const baseUrl = 'https://moviesdatabase.p.rapidapi.com';
+    //Fetch data from API
+    const mixClick = () => {
 
-            // Construct the URL with query parameters for recommended genres
-            const url = `${baseUrl}/titles`;
-
-            const options = {
-                method: 'GET',
-                headers: {
-                    'X-RapidAPI-Key': apiKey,
-                    'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com'
-                },
-                // Include query parameters for filtering by titleType (genres)
-                params: {
-                    titleType: recommendedGenres.join(','),
-                    info: 'titleText',  // You can adjust the info parameter based on your needs
-                },
-            };
-
-            try {
-                const response = await fetch(url, options);
-                const result = await response.text();
-                SetData(result); // Update the state with the fetched data
-                console.log('Fetched Data:', result);
-            } catch (error) {
-                console.error(error);
-            }
+        const getAPI = () => {
+            fetch('https://api.themoviedb.org/3/genre/movie/list?api_key=5e576c2766e37e7bfe9c9ee6c35e3e27') //Fetch Genre data
+                .then((response) => response.json())
+                .then((json) => SetGenreData(json.genres))
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+            fetch('https://api.themoviedb.org/3/discover/movie?api_key=5e576c2766e37e7bfe9c9ee6c35e3e27') //Fetch Movie data
+                .then((response) => response.json())
+                .then((json) => SetMovieList(json.results))
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
         }
+
+        getAPI();
     };
+
+    useEffect(() => {
+        console.log(GenreData);
+    }, [GenreData]);
+
+    useEffect(() => {
+        console.log(MovieList);
+    }, [MovieList]);
+
+    const [filteredMovies, setFilteredMovies] = useState([]);
 
     return (
         <>
@@ -186,7 +184,11 @@ const Mixer = () => {
                 {buttons}
             </div>
             <div className="w-20 h-17 flex justify-center">
-                <button onClick={() => mixClick()} className="bg-slate-100 text-black rounded-md px-2 py-2 text-base flex justify-center hover:bg-slate-600 active:bg-slate-700 focus:outline-none focus:ring focus:ring-slate-300">Mix</button>
+                <button onClick={() => mixClick()} className="bg-slate-100 text-black rounded-md px-2 py-2 text-base flex justify-center hover:bg-slate-600 active:bg-slate-700 focus:outline-none focus:ring focus:ring-slate-300">
+                    Mix
+                </button>
+            </div>
+            <div>
             </div>
         </>
     );
