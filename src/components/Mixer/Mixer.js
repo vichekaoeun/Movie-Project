@@ -51,7 +51,7 @@ const Mixer = () => {
         clickedButtons.current[index] = !clickedButtons.current[index];
 
         if (clickedButtons.current[index]) {
-            // If the button is clicked, add the mood to the selectedMoods array
+            // If the button is clicked, add the mood to the sel ectedMoods array
             setSelectedMoods((prevSelectedMoods) => [...prevSelectedMoods, moods[index]]);
         } else {
             // If the button is unclicked, remove the mood from the selectedMoods array
