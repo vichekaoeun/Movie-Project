@@ -25,6 +25,32 @@ const getRandomColor = () => {
 
 const moods = ["Happy", "Sad", "Excite", "Calm", "Fear", "Anger", "Content", "Romantic", "Stress", "Humorous"];
 
+const moodGenreMapping = {
+    Happy: ['Comedy', 'Adventure', 'Musical'],
+    Sad: ['Drama', 'Romance'],
+    Excite: ['Action', 'Sci-Fi'],
+    Calm: ['Documentary', 'Drama'],
+    Fear: ['Mystery', 'Thriller'],
+    Anger: ['Action', 'Drama'],
+    Content: ['Drama', 'Romance', 'Comedy'],
+    Romantic: ['Action', 'Drama', 'Romance'],
+    Stress: ['Drama', 'Romance', 'Comedy'],
+    Humorous: ['Animation', 'Comedy', 'Family'],
+};
+
+const getRecommendedGenres = (selectedMoods) => {
+    const recommendedGenres = [];
+
+    selectedMoods.forEach((mood) => {
+        const genresForMood = moodGenreMapping[mood];
+        if (genresForMood) {
+            recommendedGenres.push(...genresForMood);
+        }
+    });
+
+    return Array.from(new Set(recommendedGenres)); // Remove duplicates
+};
+
 const Mixer = () => {
     const numButtons = 10;
     const [buttons, setButtons] = useState([]);
@@ -59,6 +85,7 @@ const Mixer = () => {
                 prevSelectedMoods.filter((mood) => mood !== moods[index])
             );
         }
+
 
         setButtons(prevButtons => {
             const newButtons = [...prevButtons];
@@ -113,6 +140,10 @@ const Mixer = () => {
         }
         setButtons(generatedButtons);
     }, []);
+
+    const recommendedGenres = getRecommendedGenres(selectedMoods);
+    console.log('Recommended Genres:', recommendedGenres);
+
 
     return (
         <>
