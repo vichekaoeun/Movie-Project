@@ -285,7 +285,7 @@ const Mixer = () => {
                 </button>
             </div>
             <div>
-                <Popup modal={modal} toggleModal={toggleModal} />
+                <Popup modal={modal} toggleModal={toggleModal} MovieList={MovieList} />
             </div>
         </>
     );

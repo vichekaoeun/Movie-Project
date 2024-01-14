@@ -1,4 +1,5 @@
-/* Example styles - adjust as needed */
+/* Popup.css */
+
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -7,12 +8,48 @@
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
 
 .modal-content {
     background: #fff;
     padding: 20px;
     border-radius: 8px;
+    max-width: 70%;
+    /* Adjust this value */
+    overflow: auto;
+}
+
+
+.movie-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.movie-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.movie-item img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+}
+
+.movie-details {
+    padding: 10px;
+}
+
+.close-button {
+    margin-top: 20px;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
