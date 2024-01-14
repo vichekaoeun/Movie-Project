@@ -143,23 +143,118 @@ const Mixer = () => {
 
     const recommendedGenres = getRecommendedGenres(selectedMoods);
     console.log('Recommended Genres:', recommendedGenres);
+    const genreIdMapping = {
+        "genres": [
+            {
+                "id": 28,
+                "name": "Action"
+            },
+            {
+                "id": 12,
+                "name": "Adventure"
+            },
+            {
+                "id": 16,
+                "name": "Animation"
+            },
+            {
+                "id": 35,
+                "name": "Comedy"
+            },
+            {
+                "id": 80,
+                "name": "Crime"
+            },
+            {
+                "id": 99,
+                "name": "Documentary"
+            },
+            {
+                "id": 18,
+                "name": "Drama"
+            },
+            {
+                "id": 10751,
+                "name": "Family"
+            },
+            {
+                "id": 14,
+                "name": "Fantasy"
+            },
+            {
+                "id": 36,
+                "name": "History"
+            },
+            {
+                "id": 27,
+                "name": "Horror"
+            },
+            {
+                "id": 10402,
+                "name": "Music"
+            },
+            {
+                "id": 9648,
+                "name": "Mystery"
+            },
+            {
+                "id": 10749,
+                "name": "Romance"
+            },
+            {
+                "id": 878,
+                "name": "Science Fiction"
+            },
+            {
+                "id": 10770,
+                "name": "TV Movie"
+            },
+            {
+                "id": 53,
+                "name": "Thriller"
+            },
+            {
+                "id": 10752,
+                "name": "War"
+            },
+            {
+                "id": 37,
+                "name": "Western"
+            }
+        ]
+    }
 
     const [MovieList, SetMovieList] = useState([]);
-    const [GenreData, SetGenreData] = useState([]);
+
+
 
     //Fetch data from API
     const mixClick = () => {
 
         const getAPI = () => {
-            fetch('https://api.themoviedb.org/3/genre/movie/list?api_key=5e576c2766e37e7bfe9c9ee6c35e3e27') //Fetch Genre data
+            if (recommendedGenres.length === 0) {
+                console.log('No genres selected. Please select at least one genre.');
+                return; // Abort the API call if no genres are selected
+            }
+
+            // Map selected genres to their corresponding IDs using genreIdMapping
+            const genreIds = recommendedGenres.map(genre => {
+                const genreObject = genreIdMapping.genres.find(item => item.name === genre);
+                return genreObject ? genreObject.id : null;
+            });
+
+            // Filter out null values (in case a genre is not found in genreIdMapping)
+            const validGenreIds = genreIds.filter(id => id !== null);
+
+            // Join the valid genre IDs to form encodedGenres
+            const encodedGenres = encodeURIComponent(validGenreIds.join(','));
+            const apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=5e576c2766e37e7bfe9c9ee6c35e3e27&with_genres=${encodedGenres}`;
+            console.log('API URL:', apiUrl);
+            fetch(apiUrl) //Fetch Movie data
                 .then((response) => response.json())
-                .then((json) => SetGenreData(json.genres))
-                .catch((error) => {
-                    console.error('Error:', error);
-                });
-            fetch('https://api.themoviedb.org/3/discover/movie?api_key=5e576c2766e37e7bfe9c9ee6c35e3e27') //Fetch Movie data
-                .then((response) => response.json())
-                .then((json) => SetMovieList(json.results))
+                .then((json) => {
+                    SetMovieList(json.results)
+                })
                 .catch((error) => {
                     console.error('Error:', error);
                 });
@@ -169,14 +264,8 @@ const Mixer = () => {
     };
 
     useEffect(() => {
-        console.log(GenreData);
-    }, [GenreData]);
-
-    useEffect(() => {
         console.log(MovieList);
     }, [MovieList]);
-
-    const [filteredMovies, setFilteredMovies] = useState([]);
 
     return (
         <>
