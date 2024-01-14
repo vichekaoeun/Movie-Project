@@ -253,7 +253,7 @@ const Mixer = () => {
 
             // Join the valid genre IDs to form encodedGenres
             const encodedGenres = encodeURIComponent(validGenreIds.join(','));
-            const apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=5e576c2766e37e7bfe9c9ee6c35e3e27&with_genres=${encodedGenres}`;
+            const apiUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&with_genres=${encodedGenres}`;
             console.log('API URL:', apiUrl);
             fetch(apiUrl) //Fetch Movie data
                 .then((response) => response.json())
