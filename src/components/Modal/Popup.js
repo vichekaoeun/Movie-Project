@@ -10,11 +10,11 @@ const Popup = ({ modal, toggleModal, MovieList }) => {
                     <div className="modal-content">
                         <div>
                             {MovieList.map((movie) => (
-                                <div key={movie.id}>
-                                    <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
+                                <div className="stylings" key={movie.id}>
+                                    <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}` } className ="center" />
                                     <div>
-                                        <h3>{movie.title}</h3>
-                                        <p>{movie.overview}</p>
+                                        <h3 className="underline " id="title">{movie.title}</h3>
+                                        <p id= "descr">{movie.overview}</p>
                                     </div>
                                 </div>
                             ))}
