@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import './Mixer.css';
+import Popup from '../Modal/Popup.js'
 
 // Generate a random size value
 const getRandomSize = () => {
@@ -225,11 +226,15 @@ const Mixer = () => {
     }
 
     const [MovieList, SetMovieList] = useState([]);
+    const [modal, setModal] = useState(false);
 
-
+    const toggleModal = () => {
+        setModal(!modal);
+    }
 
     //Fetch data from API
     const mixClick = () => {
+
 
         const getAPI = () => {
             if (recommendedGenres.length === 0) {
@@ -253,7 +258,8 @@ const Mixer = () => {
             fetch(apiUrl) //Fetch Movie data
                 .then((response) => response.json())
                 .then((json) => {
-                    SetMovieList(json.results)
+                    const selectedMovies = json.results.slice(0, 5); //Select only first 5 movies
+                    SetMovieList(selectedMovies)
                 })
                 .catch((error) => {
                     console.error('Error:', error);
@@ -261,6 +267,7 @@ const Mixer = () => {
         }
 
         getAPI();
+        toggleModal();
     };
 
     useEffect(() => {
@@ -278,6 +285,7 @@ const Mixer = () => {
                 </button>
             </div>
             <div>
+                <Popup modal={modal} toggleModal={toggleModal} />
             </div>
         </>
     );
