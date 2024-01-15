@@ -1,5 +1,5 @@
 # Moodify
-Moodify aims to bring convenience to all movie lovers across the internet.  Using the Mood Mixer feature, our website will scour multiple box office movies that fits your current mood. Not only that Movie Mood Mixer allows users to connect with other users across the internet, allowing users to share their favorite movie playlists to people across the world.
+Moodify aims to bring convenience to all movie lovers across the internet.  Using the Moodify feature, our website will scour multiple box office movies that fits your current mood. Not only that Moodify allows users to connect with other users across the internet, allowing users to share their favorite movie playlists to people across the world.
 # Setup
 Before working there are specific tools and extensions to install: <br>
 - [<u> NodeJS </u>](https://nodejs.org/en/download)
@@ -33,4 +33,5 @@ localhost:9000
 npm run build
 ```
 # Demo
+Host using <u>Netlify</u><br>
 [Demo](https://65a4b1363a1518f76359803a--marvelous-ganache-3f0c7a.netlify.app/)
