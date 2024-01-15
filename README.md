@@ -35,3 +35,5 @@ npm run build
 # Demo
 Host using <u>Netlify</u><br>
 [Demo](https://65a4b35385c506f52b36d8d0--marvelous-ganache-3f0c7a.netlify.app/)
+# Video
+[Video](https://youtu.be/NxhgzTbB58M)
