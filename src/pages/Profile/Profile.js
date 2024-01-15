@@ -11,7 +11,6 @@ const Profile = () => {
 
     const location = useLocation();
     const userProfile = location.state?.userProfile || {};
-    const defaultImageUrl = '/image/movie-reel-icon.jpg';
 
     useEffect(() => {
         // Update the state when userProfile changes
@@ -40,19 +39,19 @@ const Profile = () => {
             <div className="flex flex-col items-center">
                 <div className="border p-5 flex flex-col gap-2 bg-slate-300 rounded-lg mt-5">
                     <form className="flex flex-col gap-2">
-                        <div className="border bg-slate-100 rounded-full">
+                        <div className="border bg-slate-100 rounded-full p-2">
 
                             {editMode ? (
                                 <input
-                                    className="border m-1"
+                                    className="border border-slate-100 m-1"
                                     type="file"
                                     accept="image/*"
                                     onChange={handleImageChange}
                                 />
                             ) : (
                                 <img
-                                    src={profileImage ? URL.createObjectURL(profileImage) : 'defaultImageUrl'}
-                                    className=" rounded-full fixed-size-image"
+                                    src={profileImage ? URL.createObjectURL(profileImage) : 'default-image-url'}
+                                    className=" max-w-full rounded-full"
                                 />
                             )}
                         </div>
