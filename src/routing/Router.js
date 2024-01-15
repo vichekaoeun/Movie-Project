@@ -6,6 +6,7 @@ import GroupPage from '../pages/Group/Group.js';
 import DiscoverPage from '../pages/Discover/Discover.js';
 import SignUp from '../pages/Auth/SignUp/SignUp.js';
 import SignIn from '../pages/Auth/SignIn/SignIn.js';
+import Profile from '../pages/Profile/Profile.js';
 
 const Router = () => {
     const router = createBrowserRouter([
@@ -32,6 +33,10 @@ const Router = () => {
         {
             path: '/signin',
             element: <SignIn />
+        },
+        {
+            path: '/profile',
+            element: <Profile />
         }
     ]);
     return <RouterProvider router={router} />

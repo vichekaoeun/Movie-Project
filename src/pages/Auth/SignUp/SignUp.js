@@ -1,13 +1,20 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
-    const [email, setEmail] = useState('username');
+    const navigate = useNavigate();
+    const [useremail, setEmail] = useState('email');
     const [password, setPassword] = useState('password');
     const [retypePassword, setRetypePassword] = useState('password');
 
     const handleSignUp = () => {
         if (password === retypePassword) {
-            console.log('Signing up with:', email, password);
+            const userProfile = {
+                email: useremail,
+                // Add other relevant properties
+            };
+            navigate('/profile', { state: { userProfile } });
+            console.log('User profile created');
         } else {
             alert("Passwords do not match");
         }
@@ -20,7 +27,7 @@ const SignUp = () => {
                 <form className='flex flex-col justify-center gap-4'>
                     <div className='flex flex-col gap-1 my-5'>
                         <label>
-                            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className='border p-2 rounded-sm' />
+                            <input type="email" value={useremail} onChange={(e) => setEmail(e.target.value)} className='border p-2 rounded-sm' />
                         </label>
 
                         <label>
@@ -33,7 +40,6 @@ const SignUp = () => {
                     <div className='flex justify-center '>
                         <button type="button" onClick={handleSignUp} className='border px-2 rounded-md bg-slate-100 text-black rounded-md px-2 py-2 text-base flex justify-center hover:bg-slate-600 active:bg-slate-700 focus:outline-none focus:ring focus:ring-slate-300'>Sign Up</button>
                     </div>
-
                 </form>
             </div>
         </div>

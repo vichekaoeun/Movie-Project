@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const SignIn = () => {
-    const [email, setEmail] = useState('username');
+    const [email, setEmail] = useState('email');
     const [password, setPassword] = useState('password');
 
     const handleSignIn = () => {
