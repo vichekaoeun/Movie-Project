@@ -34,4 +34,4 @@ npm run build
 ```
 # Demo
 Host using <u>Netlify</u><br>
-[Demo](https://65a4b1363a1518f76359803a--marvelous-ganache-3f0c7a.netlify.app/)
+[Demo](https://65a4b35385c506f52b36d8d0--marvelous-ganache-3f0c7a.netlify.app/)
