@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 
 const SignUp = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('username');
+    const [password, setPassword] = useState('password');
+    const [retypePassword, setRetypePassword] = useState('password');
 
     const handleSignUp = () => {
-        console.log('Signing up with:', email, password);
+        if (password === retypePassword) {
+            console.log('Signing up with:', email, password);
+        } else {
+            alert("Passwords do not match");
+        }
     };
 
     return (
@@ -22,7 +27,7 @@ const SignUp = () => {
                             <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className='border p-2 rounded-sm' />
                         </label>
                         <label>
-                            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className='border p-2 rounded-sm' />
+                            <input type="password" value={retypePassword} onChange={(e) => setRetypePassword(e.target.value)} className='border p-2 rounded-sm' />
                         </label>
                     </div>
                     <div className='flex justify-center '>

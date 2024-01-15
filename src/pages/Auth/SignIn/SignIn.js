@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import SignUp from '../SignUp/SignUp';
 import { Link } from 'react-router-dom';
 
 const SignIn = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('username');
+    const [password, setPassword] = useState('password');
 
     const handleSignIn = () => {
         console.log('Signing in with:', email, password);
